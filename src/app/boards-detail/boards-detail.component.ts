@@ -10,20 +10,19 @@ import { FirestoreService } from '../firestore.service'
   styleUrls: ['./boards-detail.component.css'],
 })
 export class BoardsDetailComponent implements OnInit {
+  id: string
   board: any
 
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private fs: FirestoreService,
-  ) {}
-
-  ngOnInit() {
-    this.getBoardDetails(this.route.snapshot.params['id'])
+  constructor(private route: ActivatedRoute, private router: Router, private fs: FirestoreService) {
+    this.id = this.route.snapshot.params['id']
   }
 
-  private getBoardDetails(id) {
-    this.fs.getBoard(id).subscribe(board => {
+  ngOnInit() {
+    this.getBoardDetails()
+  }
+
+  private getBoardDetails() {
+    this.fs.getBoard(this.id).subscribe(board => {
       console.log(board)
       this.board = board
     })

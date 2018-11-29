@@ -1,9 +1,12 @@
 import { Injectable } from '@angular/core'
 
 import { Observable, from } from 'rxjs'
+import { map } from 'rxjs/operators'
+
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore'
 
 export interface Board {
+  id?: string
   author: string
   description: string
   title: string
@@ -20,7 +23,15 @@ export class FirestoreService {
   }
 
   getBoards(): Observable<Board[]> {
-    return this.boardCollection.valueChanges()
+    return this.boardCollection.snapshotChanges().pipe(
+      map(actions =>
+        actions.map(a => {
+          const data = a.payload.doc.data()
+          const id = a.payload.doc.id
+          return { id, ...data }
+        }),
+      ),
+    )
   }
 
   getBoard(id: string): Observable<any> {

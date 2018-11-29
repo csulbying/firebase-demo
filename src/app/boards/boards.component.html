@@ -30,7 +30,7 @@
     <tr
       mat-row
       *matRowDef="let row; columns: displayedColumns"
-      [routerLink]="['/boards-details/', row.key]"
+      [routerLink]="['/boards-details/', row.id]"
     ></tr>
   </table>
 </div>

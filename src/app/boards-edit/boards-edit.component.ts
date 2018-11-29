@@ -42,8 +42,8 @@ export class BoardsEditComponent implements OnInit {
     })
   }
 
-  onFormSubmit(form: NgForm) {
-    const board: Board = form.value
+  onFormSubmit(form: any) {
+    const board: Board = form
     this.fs.updateBoards(this.id, board).subscribe(
       res => {
         this.router.navigate(['/boards'])

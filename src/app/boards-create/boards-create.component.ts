@@ -29,8 +29,9 @@ export class BoardsCreateComponent implements OnInit {
     })
   }
 
-  onFormSubmit(form: NgForm) {
-    const board: Board = form.value as Board
+  onFormSubmit(form: any) {
+    const board = form as Board
+    console.log(board)
     this.fs.postBoard(board).subscribe(
       id => {
         this.router.navigate(['/boards-details', id])

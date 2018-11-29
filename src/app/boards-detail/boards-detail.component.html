@@ -1,3 +1,31 @@
-<p>
-  boards-detail works!
-</p>
+<div class="button-row">
+  <a mat-fab color="primary" [routerLink]="['/boards']"><mat-icon>list</mat-icon></a>
+</div>
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title
+      ><h2>{{ board.title }}</h2></mat-card-title
+    >
+    <mat-card-subtitle>{{ board.description }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+      <dt>ISBN:</dt>
+      <dd>{{ board.isbn }}</dd>
+      <dt>Author:</dt>
+      <dd>{{ board.author }}</dd>
+      <dt>Publisher:</dt>
+      <dd>{{ board.publisher }}</dd>
+      <dt>Publish Year:</dt>
+      <dd>{{ board.published_year }}</dd>
+      <dt>Update Date:</dt>
+      <dd>{{ board.updated_date | date }}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-fab color="primary" [routerLink]="['/board-edit', board.key]"
+      ><mat-icon>edit</mat-icon></a
+    >
+    <a mat-fab color="warn" (click)="deleteBoard(board.key)"><mat-icon>delete</mat-icon></a>
+  </mat-card-actions>
+</mat-card>

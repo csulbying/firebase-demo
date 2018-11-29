@@ -12,6 +12,22 @@ import { BoardsDetailComponent } from './boards-detail/boards-detail.component'
 import { BoardsCreateComponent } from './boards-create/boards-create.component'
 import { BoardsEditComponent } from './boards-edit/boards-edit.component'
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import {
+  MatInputModule,
+  MatPaginatorModule,
+  MatProgressSpinnerModule,
+  MatSortModule,
+  MatTableModule,
+  MatIconModule,
+  MatButtonModule,
+  MatCardModule,
+  MatFormFieldModule,
+} from '@angular/material'
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+
 const appRoutes: Routes = [
   {
     path: 'boards',
@@ -49,6 +65,18 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatIconModule,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

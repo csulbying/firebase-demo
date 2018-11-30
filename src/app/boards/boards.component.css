@@ -4,6 +4,7 @@
   max-height: 500px;
   min-width: 300px;
   overflow: auto;
+  margin: 10px;
 }
 
 .title-col {
@@ -12,5 +13,5 @@
 }
 
 .button-row {
-  margin: 10px 0;
+  margin: 10px;
 }

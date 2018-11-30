@@ -26,7 +26,7 @@ import {
   MatFormFieldModule,
 } from '@angular/material'
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { ReactiveFormsModule } from '@angular/forms'
 
 const appRoutes: Routes = [
   {
@@ -65,7 +65,6 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,

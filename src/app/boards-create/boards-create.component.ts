@@ -29,8 +29,8 @@ export class BoardsCreateComponent implements OnInit {
     })
   }
 
-  onFormSubmit(form: any) {
-    const board = form as Board
+  onFormSubmit() {
+    const board = this.boardsForm.value
     console.log(board)
     this.fs.postBoard(board).subscribe(
       id => {
